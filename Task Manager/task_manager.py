@@ -254,8 +254,8 @@ def view_mine():
             elif (task_no > 0) and (task_no <= len(my_list)):
                 option = input(
                     """👉 Please select option below.
-            m - mark the task as complete.
-            e - edit the task.
+            m - Mark the task as complete.
+            e - Edit the task.
             : """
                 )
                 break
@@ -271,11 +271,11 @@ def view_mine():
         💡 If the task is marked as completed you can not change or edit the task. 
         : """
         )
+        mark_completed = check_options(mark_completed, ["y", "n"])
         if mark_completed == "y":
             my_list[task_no - 1]["completed"] = "Yes"
             msg = "✔️  Your task has been marked as completed."
-        else:
-            return
+        return
 
     elif option == "e":  # - Edit the task.
         is_completed = my_list[task_no - 1]["completed"]
@@ -287,8 +287,8 @@ def view_mine():
         else:
             edit_option = input(
                 """👉 Please select option below.
-        a - edit the user assigning.
-        d - edit the due date of task.
+        a - Edit the user assigning.
+        d - Edit the due date of task.
         : """
             )
             edit_option = check_options(edit_option, ["a", "d"])
@@ -427,7 +427,7 @@ while True:
     # - Making sure that the user input is converted to lower case.
     print()
     gen_option = """
-    r  - registering a user
+    r  - Registering a user
     a  - Adding a task
     va - View all tasks
     vm - View my tasks

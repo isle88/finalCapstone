@@ -295,6 +295,9 @@ def view_mine():
             edit_option = check_options(edit_option, ["a", "d"])
             if edit_option == "a":  # - Edit the user that is assigned to the task.
                 name = input("Name of person assigned to task: ")
+                if name not in username_password.keys():
+                    print(" ❗User does not exist. Please enter a valid username.")
+                    return
                 my_list[task_no - 1]["username"] = name
                 msg = "✔️  User assign successfully changed."
 

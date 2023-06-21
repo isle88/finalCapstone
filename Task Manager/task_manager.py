@@ -299,7 +299,7 @@ def view_mine():
                 msg = "✔️  User assign successfully changed."
 
             if edit_option == "d":  # - Edit the due date of the task.
-                due_date_time = check_date()
+                due_date_time, _ = check_date()
                 my_list[task_no - 1]["due_date"] = due_date_time
                 msg = "✔️  Due date successfully changed"
     update_task(msg)

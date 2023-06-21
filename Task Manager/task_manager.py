@@ -275,7 +275,8 @@ def view_mine():
         if mark_completed == "y":
             my_list[task_no - 1]["completed"] = "Yes"
             msg = "✔️  Your task has been marked as completed."
-        return
+        elif mark_completed == "n":
+            return
 
     elif option == "e":  # - Edit the task.
         is_completed = my_list[task_no - 1]["completed"]

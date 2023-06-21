@@ -1,0 +1,16 @@
+
+        __________________________________________________
+        >>> User_overview
+
+            Total number of users: 1
+            Total number of tasks: 1
+        ==================================================
+        
+            Username:                   admin
+
+            Tasks assigned:             100 % (1)
+            Completed tasks:            0 %
+            Uncompleted tasks:          100 %
+            Uncompleted and overdue:    100 %
+        __________________________________________________
+            

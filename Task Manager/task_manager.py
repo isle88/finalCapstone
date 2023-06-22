@@ -254,8 +254,9 @@ def view_mine():
             elif (task_no > 0) and (task_no <= len(my_list)):
                 option = input(
                     """👉 Please select option below.
-            m - Mark the task as complete.
-            e - Edit the task.
+            m  - Mark the task as complete.
+            ea - Edit the user assigning.
+            ed - Edit the due date of task.
             : """
                 )
                 break
@@ -263,7 +264,7 @@ def view_mine():
             print(" ❗Please select a number.")
 
     # - Check the entered value against check_option().
-    option = check_options(option, ["m", "e"])
+    option = check_options(option, ["m", "ea", "ed"])
 
     if option == "m":  # - Mark the task as completed.
         mark_completed = input(
@@ -278,33 +279,26 @@ def view_mine():
         elif mark_completed == "n":
             return
 
-    elif option == "e":  # - Edit the task.
+    elif option == "ea" or option == "ed":  # - Edit the task.
         is_completed = my_list[task_no - 1]["completed"]
         # Check if the task completed or not.
         if is_completed == "Yes":
             print(" ❗The task is completed. no more changes allowed.")
             return
 
-        else:
-            edit_option = input(
-                """👉 Please select option below.
-        a - Edit the user assigning.
-        d - Edit the due date of task.
-        : """
-            )
-            edit_option = check_options(edit_option, ["a", "d"])
-            if edit_option == "a":  # - Edit the user that is assigned to the task.
-                name = input("Name of person assigned to task: ")
-                if name not in username_password.keys():
-                    print(" ❗User does not exist. Please enter a valid username.")
-                    return
-                my_list[task_no - 1]["username"] = name
-                msg = "✔️  User assign successfully changed."
+        elif option == "ea":  # - Edit the user that is assigned to the task.
+            name = input("Name of person assigned to task: ")
+            if name not in username_password.keys():
+                print(" ❗User does not exist. Please enter a valid username.")
+                return
+            
+            my_list[task_no - 1]["username"] = name
+            msg = "✔️  User assign successfully changed."
 
-            if edit_option == "d":  # - Edit the due date of the task.
-                due_date_time, _ = check_date()
-                my_list[task_no - 1]["due_date"] = due_date_time
-                msg = "✔️  Due date successfully changed"
+        elif option == "ed":  # - Edit the due date of the task.
+            due_date_time, _ = check_date()
+            my_list[task_no - 1]["due_date"] = due_date_time
+            msg = "✔️  Due date successfully changed"
     update_task(msg)
 
 

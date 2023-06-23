@@ -345,8 +345,8 @@ def generate_reports():
             Overdue:                        {p_uc_over} %
         __________________________________________________
         """
-        print(str_t)
         t_overview_file.write(str_t)
+        print("✔️  task_overview.txt created.")
 
     """
     # - Create user_overview.txt if it doesn't exist.
@@ -404,8 +404,8 @@ def generate_reports():
             Uncompleted and overdue:    {p_u_over} %
         __________________________________________________
             """
-        print(str_u)
         u_overview_file.write(str_u)
+        print("✔️  user_overview.txt created.")
 
 
 def display_statistics():
